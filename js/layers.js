@@ -180,6 +180,11 @@ addLayer("t", {
             effectDisplay() { 
                 return format(upgradeEffect(this.layer, this.id))+"x" 
             }
+        },
+        13: {
+            title: "Talon Links are very smart",
+            description: "Even if some are dumb, 1.8x T.M. Points.",
+            cost: new Decimal(11)
         }
     },
 })
