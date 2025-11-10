@@ -162,7 +162,7 @@ addLayer("t", {
         return new Decimal(1)
     },
 
-    layerShown() { return true },          // Returns a bool for if this layer's node should be visible in the tree.
+    layerShown() { return true },      // Returns a bool for if this layer's node should be visible in the tree.
 
     upgrades: {
         11: {
