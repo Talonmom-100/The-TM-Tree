@@ -130,6 +130,12 @@ milestones: {
                 return false 
         }
     }
+},
+infoboxes: {
+    lore: {
+        title: "Welcome!",
+        body() { return "Welcome to the T.M. Tree! This tree is full of things from the dev's imagination, such as Baby Talon Links, Talon Links, and more!<br> Baby Talon Links are Kirbies that say E. They are also smart. They can have babies, and can even be pets! More info will be seen in the upgrades... as well as milestones to see how smart Baby Talon Links are.<br> Also, there is lore for this tree! The link to the corresponding lore thing on Google Docs will be available soon.<br> Anyways... HAVE FUN!" }
+    }
 }
 })
 addLayer("t", {
