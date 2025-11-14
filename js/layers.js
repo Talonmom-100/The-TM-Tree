@@ -83,7 +83,7 @@ addLayer("b", {
     },
         24: {
             title: "Baby Talon Links love animals",
-            description: "1.5x T.M. point gain again.",
+            description: "1.5x T.M. Point gain again.",
             cost: new Decimal(875)
     },
         31: {
@@ -110,7 +110,7 @@ addLayer("b", {
 milestones: {
     1: {
         requirementDescription: "Baby Talon Links can read: 200 Baby Talon Links",
-        effectDescription: "Double T.M. point gain again.",
+        effectDescription: "Double T.M. Point gain again.",
         done() { 
             return player.b.points.gte(200) 
         },
@@ -173,7 +173,7 @@ addLayer("t", {
     upgrades: {
         11: {
             title: "Talon Links are big pixelated Marios",
-            description: "2.5x point gain.",
+            description: "2.5x T.M. Point gain.",
             cost: new Decimal(1)
         },
         12: {
@@ -191,6 +191,11 @@ addLayer("t", {
             title: "Talon Links are very smart",
             description: "Even if some are dumb, 1.8x T.M. Points.",
             cost: new Decimal(11)
+        },
+        14: {
+            title: "Talon Links like animals",
+            description: "Even if some don't, 1.55x T.M. Points.",
+            cost: new Decimal(18)
         }
     },
 })

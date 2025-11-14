@@ -1,7 +1,7 @@
 let modInfo = {
 	name: "The T.M. Tree",
 	author: "Talonmom-100",
-	pointsName: "T.M. points",
+	pointsName: "T.M. Points",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
@@ -18,7 +18,8 @@ let VERSION = {
 
 let changelog = `<h1>Changelog:</h1><br>
 	<h3>v0.1</h3><br>
-		- Added Baby Talon Links, the first layer.`
+		- Added Baby Talon Links, the first layer.<br>
+		- Added Talon Links, the second layer.`
 
 let winText = `You have now beaten the game. Thanks for playing!`
 
@@ -57,6 +58,8 @@ function getPointGen() {
 		gain = gain.times(upgradeEffect('t', 12))
 	if (hasUpgrade('t', 13))
 		gain = gain.times(1.8)
+	if (hasUpgrade('t', 14))
+		gain = gain.times(1.55)
 	return gain
 }
 
