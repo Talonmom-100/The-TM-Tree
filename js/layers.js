@@ -196,6 +196,48 @@ addLayer("t", {
             title: "Talon Links like animals",
             description: "Even if some don't, 1.55x T.M. Points.",
             cost: new Decimal(18)
+        },
+        21: {
+            title: "Talon Links can discover new BTL types",
+            description: "Get another 1/2 to unlocking BTL Types, and unlock it.",
+            cost: new Decimal(27)
+        }
+    },
+})
+addLayer("bt", {
+    symbol: "BT",
+    startData() { return {                  // startData is a function that returns default data for a layer. 
+        unlocked: hasUpgrade('t', 21),                     // You can add more variables here to add them to your layer.
+        points: new Decimal(0),             // "points" is the internal name for the main resource of the layer.
+    }},
+
+    color: "#AAAAAA",                       // The color for this layer, which affects many elements.
+    resource: "BTL Type Points",            // The name of this layer's main prestige resource.
+    row: "side",                                 // The row this layer is on (0 is the first row).
+
+    baseResource: " Baby Talon Links",                 // The name of the resource your prestige gain is based on.
+    baseAmount() { return player.b.points },  // A function to return the current amount of baseResource.
+
+    requires: new Decimal(100000),              // The amount of the base needed to  gain 1 of the prestige currency.
+                                            // Also the amount required to unlock the layer.
+
+    type: "static",                         // Determines the formula used for calculating prestige currency.
+    exponent: 0.5,                          // "normal" prestige gain is (currency^exponent).
+
+    gainMult() {                            // Returns your multiplier to your gain of the prestige resource.
+        return new Decimal(1)               // Factor in any bonuses multiplying gain here.
+    },
+    gainExp() {                             // Returns the exponent to your gain of the prestige resource.
+        return new Decimal(1)
+    },
+
+    layerShown() { return true },          // Returns a bool for if this layer's node should be visible in the tree.
+
+    upgrades: {
+        11: {
+            title: "Fire!",
+            description: "Unlock the Fire BTL Clickable(I'm so sorry, Acamaeda).",
+            cost: Decimal(1)
         }
     },
 })
