@@ -207,7 +207,7 @@ addLayer("t", {
 addLayer("bt", {
     symbol: "BT",
     startData() { return {                  // startData is a function that returns default data for a layer. 
-        unlocked: hasUpgrade('t', 21),                     // You can add more variables here to add them to your layer.
+        unlocked: false,                     // You can add more variables here to add them to your layer.
         points: new Decimal(0),             // "points" is the internal name for the main resource of the layer.
     }},
 
@@ -218,7 +218,7 @@ addLayer("bt", {
     baseResource: " Baby Talon Links",                 // The name of the resource your prestige gain is based on.
     baseAmount() { return player.b.points },  // A function to return the current amount of baseResource.
 
-    requires: new Decimal(100000),              // The amount of the base needed to  gain 1 of the prestige currency.
+    requires: new Decimal(200000),              // The amount of the base needed to  gain 1 of the prestige currency.
                                             // Also the amount required to unlock the layer.
 
     type: "static",                         // Determines the formula used for calculating prestige currency.
@@ -231,13 +231,24 @@ addLayer("bt", {
         return new Decimal(1)
     },
 
-    layerShown() { return true },          // Returns a bool for if this layer's node should be visible in the tree.
+    layerShown() { return hasUpgrade('t', 21) },  // Returns a bool for if this layer's node should be visible in the tree.
 
     upgrades: {
         11: {
             title: "Fire!",
-            description: "Unlock the Fire BTL Clickable(I'm so sorry, Acamaeda).",
+            description: "Unlock the Fire BTL Buyable.",
             cost: Decimal(1)
+        }
+    },
+    buyables: {
+        11: {
+            cost(x) { return new Decimal(1000).mul(x) },
+            title: "Fire BTL Buyable",
+            display() { return "Get a Fire BTL." },
+            canAfford() { return player.b.points.gte(this.cost()) },
+            buy() {
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            }
         }
     },
 })
